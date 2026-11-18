@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumi</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: #020408;
+        overflow: hidden;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      #game {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Vignette overlay baked into the page for extra mood */
+      #game::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 140px 10px rgba(0, 0, 0, 0.45);
+        z-index: 10;
+      }
+      canvas {
+        image-rendering: auto;
+      }
+      #loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8fb7d4;
+        letter-spacing: 0.4em;
+        font-size: 13px;
+        text-transform: uppercase;
+        background: #020408;
+        z-index: 5;
+        transition: opacity 0.8s ease;
+      }
+      #loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="loader">Lumi</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
